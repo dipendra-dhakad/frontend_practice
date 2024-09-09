@@ -12,8 +12,8 @@ const express = require ('express');
  const bodyParser = require("body-parser");
  app.use(bodyParser.json());
 
- app.listen(3000, ()=>{
-     console.log("Server Started at port no. 3000");
+ app.listen(4000, ()=>{
+     console.log("Server Started at port no. 4000");
      
  })
 
@@ -32,10 +32,18 @@ const express = require ('express');
 
  const mongoose = require ('mongoose');
 
- mongoose.connect('mongodb://localhost:27017/myDatabase',{
-   // useNewUrlParser:true,
-   // useUnifiedTopology:true
- })
+//  mongoose.connect('mongodb://localhost:27017/myDatabase',{
+//    // useNewUrlParser:true,
+//    // useUnifiedTopology:true
+//  })
 
- .then(()=>{console.log("Connection Successfully")})
- .catch(()=>{console.log("Received an error")})
+//  .then(()=>{console.log("Connection Successfully")})
+//  .catch((err)=>{console.log("Received an error",err)})  
+
+mongoose.connect('mongodb://127.0.0.1:27017/myDatabase')
+  .then(() => {
+    console.log("Connection Successfully");
+  })
+  .catch((err) => {
+    console.log("Received an error", err);
+  });
